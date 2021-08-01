@@ -1,4 +1,4 @@
-module.exports = class Pokemon {
+class Pokemon {
 
     constructor(name, id) {
         this.id = id;
@@ -8,3 +8,5 @@ module.exports = class Pokemon {
 
 }
 
+
+module.exports = Pokemon
