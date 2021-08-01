@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-module.exports = class API {
+class API {
 
     constructor() {
         this.baseUrl = 'https://pokeapi.co/api/v2'
@@ -23,4 +23,6 @@ module.exports = class API {
             : false
     }
 }
+
+module.exports = API
 
