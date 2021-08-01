@@ -53,8 +53,8 @@ class Pokedex {
     }
 
     isPokemonExist(name) {
-        const findPokemon = this.pokemonsList.
-            find(p => p.toLowerCase() === name.toLowerCase())
+        const findPokemon = this.pokemonsList
+            .find(p => p.toLowerCase() === name.toLowerCase())
         return findPokemon ? true : false
     }
 }
