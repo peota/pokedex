@@ -1,14 +1,15 @@
 const Pokemon = require('./Pokemon')
 const API = require('./API')
-const pokemonsList = require('./Pokemons')
+const pokemonDB = require('./Pokemons')
 
 class Pokedex {
 
     constructor() {
         this.API = new API()
-        this.pokemonsList = pokemonsList
+        this.pokemonDB = pokemonDB
     }
 
+    // getting a single Pokemon by his name
     async getPokemon(name) {
         // check if name specified
         if (!name)
@@ -31,13 +32,14 @@ class Pokedex {
         }
     }
 
+    // getting multiple Pokemon's  with paging ability
     async getPokemons(offset, limit) {
 
         // prepare results array
         const pokemonsArray = []
 
         try {
-            // get pokemons general data
+            // get pokemons data (name and url)
             const data = await this.API.getPokemons(offset, limit)
 
             // get each pokemon details
@@ -52,8 +54,10 @@ class Pokedex {
         }
     }
 
+
+    // checking if Pokemon is exist in Pokedex database
     isPokemonExist(name) {
-        const findPokemon = this.pokemonsList
+        const findPokemon = this.pokemonDB
             .find(p => p.toLowerCase() === name.toLowerCase())
         return findPokemon ? true : false
     }
